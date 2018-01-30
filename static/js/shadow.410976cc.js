@@ -19559,7 +19559,7 @@
                         style: {
                             width: "100%"
                         },
-                        src: "/images/dog.jpeg"
+                        src: "/images/shadow dog.png"
                     })), s.a.createElement("div", {
                         className: "modal-footer"
                     }, s.a.createElement("button", {
