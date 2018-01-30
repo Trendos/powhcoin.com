@@ -23,5 +23,31 @@
 .shadow li
 {color: #ccc; }
 
-.shadow.card
-{background-color: #333;}
+.shadow .card
+{
+  background-color: #333;
+  box-shadow: 0 .46875rem 2.1875rem rgba(20, 0, 40, .1), 0 .9375rem 1.40625rem rgba(20, 0, 40, .1), 0 .25rem .53125rem rgba(20, 0, 40, .1), 0 .125rem .1875rem rgba(20, 0, 40, .1)
+}
+
+.shadow .btn-primary
+{
+  background-color: #6A5ACD;
+  border: #6A5ACD;
+}
+
+.shadow .btn-primary:hover
+{
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .05), 0 4px 10px rgba(20, 0, 40, .1)
+}
+
+.shadow .btn-primary:focus,
+.shadow .btn-primary.focus
+{
+  box-shadow: 0 0 0 3px rgba(20, 0, 40, .1), 0 3px 15px rgba(20, 0, 40, .1), 0 2px 5px rgba(0, 0, 0, .1)
+}
+
+.shadow .btn-primary.active,
+.shadow .btn-primary:active
+{
+  box-shadow: inset 0 .1875rem .625rem 0 #326, inset 0 .0625rem .125rem 0 #6A5ACD
+}
