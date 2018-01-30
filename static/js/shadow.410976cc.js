@@ -12994,7 +12994,7 @@
                         })
                     }), t.sellPrice(function(t, n) {
                         e.setState({
-                            sellPrice: c.a.convertWeiToEth(n) * 1
+                            sellPrice: c.a.convertWeiToEth(n) * .9
                         })
                     }), this.web3.eth.getBalance(c.a.contract_address, function(t, n) {
                         e.setState({
