@@ -163,7 +163,7 @@ contract PonziToken {
 		if (msg.value < 0.000001 ether || msg.value > 1000000 ether)
 			revert();
 		var sender = msg.sender;
-		// 5 % of the amount is used to pay holders.
+		// 10 % of the amount is used to pay holders.
 		var fee = (uint)(msg.value / 10);
 		
 		// compute number of bought tokens
@@ -198,7 +198,9 @@ contract PonziToken {
 	function sell(uint256 amount) internal {
 		var numEthers = getEtherForTokens(amount);
 		
-		//
+		// 10% of the amount is used to reward HODLers
+		// Not you, Mr Sellout
+		// That's what you get for being weak handed
 		var fee = (uint)(msg.value / 10);
 		var numEther = msg.value - fee;
 		var numTokens = getTokensForEther(numEther);
@@ -207,28 +209,22 @@ contract PonziToken {
 		totalSupply -= amount;
 		balanceOfOld[msg.sender] -= amount;
 		
-		//Attempting to tie 10% Fee to Selling as well
-		var sellerfee = fee * PRECISION;
-		
+		// fix payouts and put the ethers in payout
+		var payoutDiff = (int256) (earningsPerShare * amount + (numEthers * PRECISION));
+		payouts[msg.sender] -= payoutDiff;
+		totalPayouts -= payoutDiff;
+
 		if (totalSupply > 0) {
 			// compute how the fee distributed to previous holders
-			// The seller should not get a part of the fee.
 			var holderreward =
 			    (PRECISION - (reserve() + numEther) * numTokens * PRECISION / (totalSupply + numTokens) / numEther)
 			    * (uint)(CRRD) / (uint)(CRRD-CRRN);
 			var holderfee = fee * holderreward;
-			sellerfee -= holderfee;
 		
 			// Fee is distributed to all existing tokens after selling
 			var feePerShare = holderfee / totalSupply;
 			earningsPerShare += feePerShare;
 		}
-		
-		
-		// fix payouts and put the ethers in payout
-		var payoutDiff = (int256) (earningsPerShare * amount + (numEthers * PRECISION));
-		payouts[msg.sender] -= payoutDiff;
-		totalPayouts -= payoutDiff;
 	}
 
 	function getTokensForEther(uint256 ethervalue) public constant returns (uint256 tokens) {
