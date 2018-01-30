@@ -1,3 +1,18 @@
 .no-overlay::before {
   opacity: 0;
 }
+
+.shadow
+{background-color: #333;}
+
+.shadow-text
+{color: #aaa; }
+
+.shadow h4
+{color: #aaa; }
+
+.shadow p
+{color: #ccc; }
+
+.shadow li
+{color: #ccc; }
