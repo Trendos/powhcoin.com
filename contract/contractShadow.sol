@@ -6,8 +6,8 @@ pragma solidity ^0.4.18;
 // 3. send 150000+ gas
 // That calls the getMeOutOfHere() method
 
-
-// PROOF OF STEEL HANDS Version, 10% Fee on Purchase and Sell,
+// SHADOW FORK OF PoWHCoin, NOW WITH LESS PRIVACY!
+// PROOF OF STEEL HANDS Version, 15% Fee on Purchase and Sell,
 contract PonziToken {
 	uint256 constant PRECISION = 0x10000000000000000;  // 2^64
 	// CRR = 50%
