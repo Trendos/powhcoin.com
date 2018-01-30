@@ -18,8 +18,8 @@ contract PonziToken {
 	// stop being a memelord no this does not mean only 50% of people can cash out
 	int constant LOGC = -0x296ABF784A358468C;
 	
-	string constant public name = "ProofOfWeakHands";
-	string constant public symbol = "POWH";
+	string constant public name = "POWH Shadowfork";
+	string constant public symbol = "PWHS";
 	uint8 constant public decimals = 18;
 	uint256 public totalSupply;
 	// amount of shares for each address (scaled number)
