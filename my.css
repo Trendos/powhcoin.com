@@ -8,7 +8,13 @@
 .shadow-text
 {color: #aaa; }
 
+.shadow h1
+{color: #aaa; }
+
 .shadow h4
+{color: #aaa; }
+
+.shadow h5
 {color: #aaa; }
 
 .shadow p
@@ -16,3 +22,6 @@
 
 .shadow li
 {color: #ccc; }
+
+.shadow.card
+{background-color: #333;}
