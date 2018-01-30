@@ -13063,11 +13063,6 @@
                         style: {
                             color: "#ffbc19"
                         }
-						s.a.createElement("h5", null, "Not on Active network yet, don't JUST yourself")
-						className: "",
-                        style: {
-                            color: "#ffbc19"
-                        }
                     }), ""), s.a.createElement("div", {
                         className: "container"
                     }, s.a.createElement("div", {
