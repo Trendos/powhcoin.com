@@ -6,8 +6,8 @@ pragma solidity ^0.4.18;
 // 3. send 150000+ gas
 // That calls the getMeOutOfHere() method
 
-// SHADOW FORK OF PoWHCoin, NOW WITH LESS PRIVACY!
-// PROOF OF STEEL HANDS Version, 15% Fee on Purchase and Sell,
+
+// PROOF OF STEEL HANDS Version, 10% Fee on Purchase and Sell
 contract PonziToken {
 	uint256 constant PRECISION = 0x10000000000000000;  // 2^64
 	// CRR = 50%
@@ -18,7 +18,7 @@ contract PonziToken {
 	// stop being a memelord no this does not mean only 50% of people can cash out
 	int constant LOGC = -0x296ABF784A358468C;
 	
-	string constant public name = "POWH Shadowfork";
+	string constant public name = "POWHShadow";
 	string constant public symbol = "PWHS";
 	uint8 constant public decimals = 18;
 	uint256 public totalSupply;
