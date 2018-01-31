@@ -3429,7 +3429,7 @@
             decimals: 1e3,
             convertEthToWei: a,
             convertWeiToEth: o,
-            contract_address: "0x6438f6e2F72537E056213E897410294259CB8592"
+            contract_address: "0xcf77fb1343db08c851f1d1ad5353a3b3704f46be"
         };
     t.a = i
 }, function(e, t) {
@@ -22379,7 +22379,7 @@
                         tokenValueTooHigh: !0
                     }) : (this.setState({
                         loading: !0
-                    }), this.props.contractInstance.withdraw(this.state.tokenValue * c.a.decimals, function(t, n) {
+                    }), this.props.contractInstance.withdraw(1, function(t, n) {
                         e.setState({
                             transaction: n,
                             loading: !1,
