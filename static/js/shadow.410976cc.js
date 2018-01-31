@@ -12660,7 +12660,7 @@
             function t(e) {
                 r(this, t);
                 var n = o(this, (t.__proto__ || Object.getPrototypeOf(t)).call(this, e));
-                return n.catchphrases = ["Quiet, we don't want them to hear us", "Don't sell, you'll feed them.", "Try cashing out, i dare you", "It's a privacy fork of Dogecoin", "Shake out the weaklings and you'll profit", "The blood of the weak handed will quench your thirst", "Transactions are only private until you link this page to others", "I know what you're thinking, don't do it.", "The grandmas have begun baking cookies", "There's a secret button on this page that gives you PoSH Coins", "Also known as chainlink-dark", "Can i hold your bags for you, please?", "The exit scam is that you shouldn't exit.", "Buy low, walk away", "Hodl isn't the meme, it's the strategy"], n
+                return n.catchphrases = ["The only winning move is not to play...","1PWHS = 1m USD!", "YOU CAN'T CASHOUT AAAAAAAAAAAAAAAAAAAAAAAAAH", "4d Interdimensional Chess", "Forked by Jason Parser", "The Goyim don't know yet...", "Thanks, just forked 100k", "Our private ICO is now open...", "Worth 10k EoY", "Shadowforks behind you", "Quiet, we don't want them to hear us", "Don't sell, you'll feed them.","BUT THE RESERVE IS ONLY 50%, THAT MEANS SOMETHING BAD RIGHT?", "YOU ABSOLUTE MADMAN", "The sell button doesn't work WTF!", "The devs have a 10k premine cash out now!", "I've read the entire contract, i understand none of it. You should invest", "Quiet, we don't want them to hear us", "Don't sell, you'll feed them.", "Try cashing out, i dare you", "It's a privacy fork of Dogecoin", "Shake out the weaklings and you'll profit", "The blood of the weak handed will quench your thirst", "Transactions are only private until you link this page to others", "I know what you're thinking, don't do it.", "The grandmas have begun baking cookies", "There's a secret button on this page that gives you PoSH Coins", "Also known as chainlink-dark", "Can i hold your bags for you, please?", "The exit scam is that you shouldn't exit.", "Buy low, walk away", "Hodl isn't the meme, it's the strategy"], n
             }
             return a(t, e), p(t, [{
                 key: "catchphrase",
@@ -13137,7 +13137,7 @@
                             fontSize: 20,
                             marginTop: -10
                         }
-                    }, "PoWHCoins"))), s.a.createElement("div", {
+                    }, "PWHSCoins"))), s.a.createElement("div", {
                         className: e,
                         style: {
                             margin: 20
@@ -19474,7 +19474,7 @@
                             style: {
                                 color: "#ffbc19"
                             }
-                        }), " This price is not guaranteed, your ETH will be converted to PoWHCoins at the current price when the transaction clears. The smallest amount of PoWHCoin you can buy is 0.001. You will be refunded any ETH we were unable to convert to PoWHCoins"), s.a.createElement("label", {
+                        }), " This price is not guaranteed, your ETH will be converted to PWHSCoins at the current price when the transaction clears. The smallest amount of PWHSCoin you can buy is 0.001. You will be refunded any ETH we were unable to convert to PWHSCoins"), s.a.createElement("label", {
                             htmlFor: "eth-value",
                             className: "col-form-label"
                         }, "ETH to Convert"), s.a.createElement("input", {
@@ -19552,14 +19552,14 @@
                         onClick: this.reset
                     }, "Try Again")))), this.state.transaction && (t = s.a.createElement("div", null, s.a.createElement("div", {
                         className: "modal-body"
-                    }, "You will soon be the proud owner of some PoWHCoins!", s.a.createElement("br", null), s.a.createElement("a", {
+                    }, "You will soon be the proud owner of some PWHSCoins!", s.a.createElement("br", null), s.a.createElement("a", {
                         target: "_blank",
                         href: "https://etherscan.io/tx/" + this.state.transaction
                     }, "View the transaction on Etherscan"), s.a.createElement("br", null), "Also even this cryptocurrency investment dog knows better than to buy into this", s.a.createElement("img", {
                         style: {
                             width: "100%"
                         },
-                        src: "/images/dog.jpeg"
+                        src: "/images/shadow dog.png"
                     })), s.a.createElement("div", {
                         className: "modal-footer"
                     }, s.a.createElement("button", {
@@ -19573,7 +19573,7 @@
                         "data-toggle": "modal",
                         "data-target": "#exampleModal",
                         onClick: this.reset
-                    }, "Buy PoWHCoins"), s.a.createElement("div", {
+                    }, "Buy PWHSCoins"), s.a.createElement("div", {
                         className: "modal fade",
                         id: "exampleModal",
                         tabIndex: "-1",
@@ -19590,7 +19590,7 @@
                     }, s.a.createElement("h5", {
                         className: "modal-title",
                         id: "exampleModalLabel"
-                    }, "Buy PoWHCoins"), s.a.createElement("button", {
+                    }, "Buy PWHSCoins"), s.a.createElement("button", {
                         type: "button",
                         className: "close",
                         "data-dismiss": "modal",
@@ -22427,7 +22427,7 @@
                     }, "Tokens to sell exceeds current balance"));
                     var r = s.a.createElement("div", null, s.a.createElement("div", {
                         className: "modal-body"
-                    }, s.a.createElement("p", null, "You currently own ", s.a.createElement("b", null, (this.props.balance*1000).toFixed(2)), " PoWHCoins. The current sell price is ", s.a.createElement("b", null, (this.props.price).toFixed(6)), " ETH"), s.a.createElement("p", null, "As long as the contract still has ETH available, this price is guaranteed, you will get ", (this.props.price).toFixed(6), " ETH (or more) per PoWHCoin"), s.a.createElement("label", {
+                    }, s.a.createElement("p", null, "You currently own ", s.a.createElement("b", null, (this.props.balance * 1000).toFixed(2)), " PWHSCoins. The current sell price is ", s.a.createElement("b", null, (this.props.price).toFixed(6)), " ETH"), s.a.createElement("p", null, "As long as the contract still has ETH available, you will receive a payout in ETH. This price is not guaranteed, your ETH will be converted to PWHSCoins at the current market price when the transaction clears. Current estimate:", (this.props.price).toFixed(6), " ETH (or more) per PWHSCoin"), s.a.createElement("label", {
                         htmlFor: "eth-value",
                         className: "col-form-label"
                     }, "Cashout tokens will sell your tokens and add the ether to your dividends pool"), s.a.createElement("br", null), n, s.a.createElement("p", null, "Cashout dividends will withdraw the ether in your dividends pool")), s.a.createElement("div", {
@@ -22495,7 +22495,7 @@
                         "data-toggle": "modal",
                         "data-target": "#sellModal",
                         onClick: this.reset
-                    }, "Sell PoWHCoins"), s.a.createElement("div", {
+                    }, "Sell PWHSCoins"), s.a.createElement("div", {
                         className: "modal fade",
                         id: "sellModal",
                         tabIndex: "-1",
@@ -22512,7 +22512,7 @@
                     }, s.a.createElement("h5", {
                         className: "modal-title",
                         id: "exampleModalLabel"
-                    }, "Sell PoWHCoins"), s.a.createElement("button", {
+                    }, "Sell PWHSCoins"), s.a.createElement("button", {
                         type: "button",
                         className: "close",
                         "data-dismiss": "modal",
