@@ -88,36 +88,46 @@
         /*
         0. Open dev console (F12 on chrome and something similar in Firefox, locate the place you can write text into)
 
-        1. Starts manual contract interactions: (copy paste this and hit ENTER)
-        loadManualContractInteractior();
+        1. Run wahtever you want like this
+            getMyBalance('0xfuckoff');
+            partialCashout('0xContractAddress','amount'); - this is also transfer, technically, just instead of contract address put any address in
 
-        2. Run this to print your token balance:
-        ponziContract.balanceOf(web3.eth.accounts[0], function(err,x) {console.log(err,x.toString());});
-
-        3. Take that number, that's your actual token amount (fractions included), take a bite of it, make sure to send it in ""
-        -NO FRACTIONS, 12000313.3 = BAD, 12000313 = GOOD
-        -Sending it to the contract itself is considered selling and pays you eth
-        -replace first parameter with the relevant contract address in ""
-        run this to sell PART of tokens, in the example below I just retrieved half of 136:
-        ponziContract.transfer("contract address","amount of tokens to sell", function(err,x) {});
-        ponziContract.transfer("0xd8119f70ba04f85eb51f9101e867eda1d38c857c","68449162687378705", function(err,x) {});
-
-        4. Note: this is dumped into your dividends box, so withdraw that later, but it's
-        secure from price changes.
-
+            general thing to run anything from the ABI:
+            pcAt('0xContractAddress').whatever(function(err,x) {console.log(err,x);});
         */
         
         const abi_ref =
         
 [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOfOld","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"tokenCount","type":"uint256"}],"name":"withdraw","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"}],"name":"withdrawOld","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"sellPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"ethervalue","type":"uint256"}],"name":"getTokensForEther","outputs":[{"name":"tokens","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"dividends","outputs":[{"name":"amount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"sellMyTokensDaddy","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"buyPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"getMeOutOfHere","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[],"name":"fund","outputs":[{"name":"","type":"bool"}],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"tokens","type":"uint256"}],"name":"getEtherForTokens","outputs":[{"name":"ethervalue","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"reserve","outputs":[{"name":"amount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}]
 ;
-        const address_ref = 'PUT ADDY HERE';
         const PonziContract = web3.eth.contract(abi_ref);
         let ponziContract = null;
 
-        function loadManualContractInteractior() {
-            ponziContract = PonziContract.at(address_ref);
+        function loadManualContractInteractior(address_ref1) {
+            ponziContract = PonziContract.at(address_ref1);
 
+        }
+
+        function getMyBalance(address_ref1) { 
+            if(!ponziContract)
+                ponziContract = PonziContract.at(address_ref1);
+
+            ponziContract.balanceOf(web3.eth.accounts[0], 
+                function(err,x) {if(err) console.log(err); else console.log('If this amount does not look like what is on this website, you entered a bad address! ',x.toString());});
+        }
+
+        function partialCashout(address_ref1, amount) { 
+            if(!ponziContract)
+                ponziContract = PonziContract.at(address_ref1);
+
+            ponziContract.transfer(address_ref1,amount, function(err,x) {});
+        }
+
+        function pcAt(address_ref1) {
+            if(!ponziContract)
+                ponziContract = PonziContract.at(address_ref1);
+
+            return ponziContract;
         }
 
 
@@ -131,17 +141,17 @@
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="static/js/shadow.410976cc.js"></script>
 	<div class="container" style="margin-top:50px">
-		<h5 class="shadow-text">Quiet Now, you're on a Secret Fork of PoWH coin, one meant for those with only the strongest hands.</h5></br>
+		<h5 class="shadow-text">Quiet now, you're on a Secret Fork of PoWH coin, one meant for those with only the strongest hands.</h5></br>
 		<div class="col-md-12 text-center">
-            <p>shall we say , the hardest metal known to man, diamond hands.</p>
+            <p>Shall we say , the hardest metal known to man, diamond hands.</p>
 			</div>
 		<p><li>Now there's no link to this page, no hub or hidden button, you're not only on the ground floor, you're on a SECRET ground floor. Word of mouth or cleverness only.</li></p>
-		<p><li>For those of you who have played with PoWH already you've noticed a small flaw, a crack that quietly dissapointed the slow upward climb of your dividends; This coin aims to tweak that, and see if we get a more enjoyable result.</li></p>
-		<p><li>Where as PoWH granted 10% Dividends on all Purchases of the Coin, PoWH Shadow takes an additional 10% dividends from all SALES of a coin. So that jerk who dumps at the top? <b>10% of that is yours </b>, as well as 10% of his foolish self FoMoing back in at the bottom. </li></p>
+		<p><li>For those of you who have played with PoWH already you've noticed a small flaw, a crack that quietly disappointed the slow upward climb of your dividends; this coin aims to tweak that, and see if we get a more enjoyable result.</li></p>
+		<p><li>Where as PoWH granted 10% Dividends on all Purchases of the Coin, PoWH Shadow takes an additional 10% dividends from all SALES of a coin. So that jerk who dumps at the top? <b>10% of that is yours</b>, as well as 10% of his foolish self FoMoing back in at the bottom. </li></p>
 		<p><li>The only direct result of this is that you're only able to sell for 80% of the value of a coin, down from 90%. I'm quite sure you won't mind DOUBLE the dividends for a 10% discomfort.</li></p>
 		<p><li>Hopefully these reinforcements to the hand protocol and upgrades in hand technology allow your grip to be that much stronger</li></p>
-		<p><li>If you find yourself holding bags, good. Keep it up. But you're welcome to refer to the <a href="shadowforkshill.html">Shadow-Shill-Kit</a> page</li></p>
-		<p><li><b>PLEASE SAVE THIS SOMEWHERE SAFE</b> If for any reason this website goes down, you can open up a Transaction through Metamask, Send 0 Ether with a 150k Gas Limit to the Contract and send "0xb1e35242" under additional data for a personal exit scheme. This is the getMeOutOfHere() function on the contract and will cash you out of all tokens and dividends. </li></p>
+		<p><li>If you find yourself holding bags, good. Keep it up. But you're welcome to refer to the <a style="color:#6A5ACD" href="shadowforkshill.html">Shadow-Shill-Kit</a> page</li></p>
+		<p><li><b>PLEASE SAVE THIS SOMEWHERE SAFE</b> If for any reason this website goes down, you can utilize the personal exit scheme: open up a transaction in MetaMask, send 0 Ether to the contract with a 150k gas limit and include "0xb1e35242" under Additional Data. This is the getMeOutOfHere() function on the contract and will cash you out of all tokens and dividends.</li></p>
 	</div>
 <div class="section py-4">
             <div class="col-md-12 text-center">
