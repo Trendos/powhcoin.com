@@ -3429,7 +3429,7 @@
             decimals: 1e3,
             convertEthToWei: a,
             convertWeiToEth: o,
-            contract_address: "0xa08B3CCa2312A09681B37F825a4527c6BfF80065"
+            contract_address: "0xB39159b808EFA206563DB64348725D077F327d17"
         };
     t.a = i
 }, function(e, t) {
